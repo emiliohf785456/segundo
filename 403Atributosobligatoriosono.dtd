@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT biblioteca (libro+)>
+<!ATTLIST libro codigo CDATA #REQUIRED>
+<!ATTLIST libro ubicacion CDATA #IMPLIED>
+<!ELEMENT libro (autor, titulo)>
+<!ELEMENT autor (#PCDATA)>
+<!ELEMENT titulo (#PCDATA)>

@@ -1,0 +1,71 @@
+Escribe un documento XML que permita guardar la información de dos equipos de baloncesto y su correspondiente documento DTD que permita su validación.
+
+El nodo raíz del documento XML será equipos_de_baloncesto, el cual contendrá dos elementos equipo.
+
+De cada equipo, se debe almacenar:
+* nombre
+* ciudad
+* entrenador
+* jugadores
+
+De cada jugador, se debe guardar:
+* nombre
+* posicion: deberá representarse mediante un atributo y sus valores pueden ser (Base, Escolta, Alero o Pivot).
+* nacionalidad
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT equipos_de_baloncesto (equipo+)>
+<!ELEMENT equipo (nombre, ciudad, entrenador, jugador+)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT ciudad (#PCDATA)>
+<!ELEMENT entrenador (#PCDATA)>
+<!ELEMENT jugador (nombre, nacionalidad)>
+<!ELEMENT nacionalidad (#PCDATA)>
+<!ATTLIST jugador posicion (base | escolta | alero | pivot) #REQUIRED>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE equipos_de_baloncesto SYSTEM "409Baloncesto.dtd">
+<equipos_de_baloncesto>
+    <equipo>
+        <nombre>Golden State Warriors</nombre>
+        <ciudad>San Francisco</ciudad>
+        <entrenador>Steve Kerr</entrenador>
+        <jugador posicion="base">
+            <nombre>Chris Paul</nombre>
+            <nacionalidad>Wake Forest</nacionalidad>
+        </jugador>
+        <jugador posicion="escolta">
+            <nombre>Stephen Curry</nombre>
+            <nacionalidad>Davidson</nacionalidad>
+        </jugador>
+        <jugador posicion="alero">
+            <nombre>Klay Thompson</nombre>
+            <nacionalidad>Washington State</nacionalidad>
+        </jugador>
+        <jugador posicion="pivot">
+            <nombre>Kevon Looney</nombre>
+            <nacionalidad>UCLA</nacionalidad>
+        </jugador>
+    </equipo>
+    <equipo>
+        <nombre>Los Angeles Lakers</nombre>
+        <ciudad>Lon Angeles</ciudad>
+        <entrenador>Darvin Ham</entrenador>
+        <jugador posicion= "base">
+            <nombre>D'Angelo Russell</nombre>
+            <nacionalidad>Ohio State</nacionalidad>
+        </jugador>
+        <jugador posicion="escolta">
+            <nombre>Austin Reaves</nombre>
+            <nacionalidad>Oklahoma</nacionalidad>
+        </jugador>
+        <jugador posicion="alero">
+            <nombre>Lebron James</nombre>
+            <nacionalidad>St. Vincent-St. Mary's HS</nacionalidad>
+        </jugador>
+        <jugador posicion="pivot">
+            <nombre>Anthony Daves</nombre>
+            <nacionalidad>Florida</nacionalidad>
+        </jugador>
+    </equipo>
+</equipos_de_baloncesto>
