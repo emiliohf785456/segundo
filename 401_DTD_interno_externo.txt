@@ -1,12 +1,27 @@
-Elabora un documento DTD que permita validar la estructura del siguiente documento XML:
+Externo
 
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE libro SYSTEM "401.dtd">
 <libro>
   <autor>Miguel de Cervantes Saavedra</autor>
   <titulo>El Quijote de la Mancha</titulo>
 </libro>
 
-Todo DTD se puede definir de dos formas:
-* Externamente, mediante un fichero DTD.
-* Internamente, en el propio fichero XML.
+401.dtd
+<!ELEMENT libro (autor, titulo)>
+<!ELEMENT autor (#PCDATA)>
+<!ELEMENT titulo (#PCDATA)>
 
-Hazlo de las dos maneras.
+Interno
+
+XML
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE libro [
+  <!ELEMENT libro (autor, titulo)>
+  <!ELEMENT autor (#PCDATA)>
+  <!ELEMENT titulo (#PCDATA)>
+]>
+<libro>
+  <autor>Miguel de Cervantes Saavedra</autor>
+  <titulo>El Quijote de la Mancha</titulo>
+</libro>
