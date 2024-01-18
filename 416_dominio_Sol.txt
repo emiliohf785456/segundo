@@ -1,0 +1,24 @@
+XML
+<?xml version="1.0" encoding="UTF-8" ?>
+<dominio 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" 
+  xs:noNamespaceSchemaLocation="416.xsd">w3c.org</dominio>
+
+416.xsd
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="dominio" type="nombre-dominio" />
+
+  <xs:simpleType name="nombre-dominio">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-z0-9][a-z0-9\-]{0,61}[a-z0-9]\.[a-z]{2,3}" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+
+La expresión regular está formada por las siguientes partes:
+
+[a-z0-9]: el nombre de dominio de segundo nivel debe empezar por letra minúscula o número.
+[a-z0-9\-]{0,61}: el nombre de dominio de segundo nivel puede contener letras minúsculas, números o guiones medios desde ninguna vez hasta 61. El guión medio se debe escapar con \. Se indica 0 como el mínimo de ocurrencias porque el nombre puede tener una longitud de 2 caracteres y un máximo de 61 porque el nombre puede tener un máximo de 63 caracteres (se cuenta 61 más 2 de los caracteres que se indican en los puntos 1 y 3).
+[a-z0-9]: el nombre de dominio de segundo nivel debe terminar por letra minúscula o número.
+\.: punto que separa ambos nombres (primer nivel y segundo nivel).
+[a-z]{2,3}: el nombre de primer nivel puede contener solo letras y la longitud es de 2 o 3 caracteres.
